@@ -1,0 +1,246 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+.hero{
+height:70vh;
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+.hero-content{
+width:70%;
+}
+
+.hero h1{
+font-size:55px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:30px;
+}
+
+.hero button{
+padding:14px 35px;
+border:none;
+background:#ff4f87;
+color:white;
+font-size:18px;
+border-radius:30px;
+cursor:pointer;
+transition:.3s;
+}
+
+.hero button:hover{
+background:#ff1f67;
+}
+
+.delivery-banner {
+  background: #fff0f5;
+  text-align: center;
+  padding: 10px;
+  font-weight: 500;
+  color: #ff4d7d;
+}
+
+.products{
+padding:60px 8%;
+}
+
+.products h2{
+text-align:center;
+font-size:40px;
+margin-bottom:40px;
+color:#ff4f87;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+text-align:center;
+transition:.3s;
+position: relative;
+}
+
+
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.card h3{
+margin:15px 0;
+}
+
+.price{
+font-size:24px;
+font-weight:bold;
+color:#ff4f87;
+margin-bottom:15px;
+}
+
+.card button{
+background:#ff4f87;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+}
+
+.why{
+padding:60px 8%;
+background:#fff2f6;
+}
+
+.why h2{
+text-align:center;
+font-size:38px;
+margin-bottom:40px;
+color:#ff4f87;
+}
+
+.features{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.feature{
+width:280px;
+background:white;
+padding:25px;
+text-align:center;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.feature h3{
+margin:15px 0;
+}
+
+.customer-reviews {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.customer-reviews h2 {
+  font-size: 32px;
+  color: #ff4d7d;
+  margin-bottom: 30px;
+}
+.review-stats {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.review-stats .rating h3 {
+  color: #ff4d7d;
+  margin: 5px 0;
+}
+
+.review-stats .rating p {
+  color: gray;
+  font-size: 14px;
+}
+
+.review-stats .stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.review-stats .badge {
+  margin-top: 15px;
+  display: inline-block;
+  background: #eaffea;
+  color: #1a7f1a;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* IMPORTANT: Swiper center fix */
+.swiper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  font-size: 24px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  text-decoration: none;
+  z-index: 1000;
+}
+.cart-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  top:190px;
+  width: 320px;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+.cart-button {
+  position: absolute;
+  top: 180px;   /* Is value ko badhaoge to aur niche jayega */
+  right: 40px;
+}
+
+.cart-button button {
+  background: #ff4d7d;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+}
