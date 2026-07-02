@@ -1,4 +1,4 @@
-import React ,{ useState } from "react";
+import React ,{ useState ,useRef} from "react";
 import "./Home.css";
 import bluemoonlily from "../assets/bluemoonlily.jpeg";
 import blushblossom from "../assets/blushblossom.jpeg";
@@ -25,17 +25,32 @@ import CustomerReviews from "./CustomerReviews";
 const Home = () => {
   const [cart, setCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
-  const addToCart = (product) => {
+  const [toast, setToast] = useState("");
+  const productsRef = useRef(null);
+
+const scrollToProducts = () => {
+  productsRef.current.scrollIntoView({
+    behavior: "smooth",
+  });
+};
+const addToCart = (product) => {
   setCart([...cart, product]);
-  alert(`${product.name} added to cart 💖`);
+
+  setToast(`${product.name} added to cart 💖`);
+
+  setTimeout(() => {
+    setToast("");
+  }, 3000);
+};
+const removeFromCart = (indexToRemove) => {
+  const updatedCart = cart.filter((_, index) => index !== indexToRemove);
+  setCart(updatedCart);
 };
 const totalPrice = cart.reduce(
   (acc, item) => acc + Number(item.price.replace("₹", "")),
   0
 );
-
 const deliveryCharge = 250;
-
 const finalTotal = totalPrice + deliveryCharge;
   const products = [
     {
@@ -165,12 +180,14 @@ const finalTotal = totalPrice + deliveryCharge;
       price:"₹499",
     },
   ];
-
   return (
     <div className="home">
-
+      {toast && (
+  <div className="toast">
+    🛒 {toast}
+  </div>
+)}
       {/* Hero Section */}
-
       <section
         className="hero"
         style={{
@@ -184,86 +201,61 @@ const finalTotal = totalPrice + deliveryCharge;
             Beautiful handmade bouquets crafted with love. Perfect for birthdays,
             anniversaries, weddings and every special occasion.
           </p>
-
-          <button>Shop Now</button>
-        </div>
-        
+          <button onClick={scrollToProducts}>
+            Shop Now
+            </button>
+        </div>      
       </section>
       <div className="cart-button">
   <button onClick={() => setShowCart(!showCart)}>
     🛒 Cart ({cart.length})
   </button>
 </div>
-
       <div className="delivery-banner">
   🚚 Same Day Delivery Available | 💐 Fresh Flowers Guaranteed
 </div>
-
       {/* Products */}
-
-      <section className="products">
-
+    <section className="products" ref={productsRef}>
         <h2>Our Beautiful Bouquets</h2>
-
         <div className="product-grid">
-
           {products.map((product) => (
             <div className="card" key={product.id}>
-
               <img src={product.image} alt={product.name} />
- 
               <h3>{product.name}</h3>
-
               <p className="price">{product.price}</p>
-
                <button onClick={() => addToCart(product)}>
                 Add to Cart
                 </button>
-
             </div>
           ))}
-
         </div>
-
       </section>
-
       {/* Why Choose Us */}
-
       <section className="why">
-
         <h2>Why Choose Our Bouquets?</h2>
-
         <div className="features">
-
           <div className="feature">
             🌸
             <h3>100% Handmade</h3>
             <p>Each bouquet is handcrafted with care.</p>
           </div>
-
           <div className="feature">
             🎁
             <h3>Perfect Gift</h3>
             <p>Ideal for birthdays, anniversaries and celebrations.</p>
           </div>
-
           <div className="feature">
             💖
             <h3>Made with Love</h3>
             <p>Every bouquet is unique and long-lasting.</p>
           </div>
-
         </div>
-
       </section>
-
       <CustomerReviews />
       {showCart && (
   <div className="cart-box">
-
     <div className="cart-header">
       <h2>🛍️ Your Cart</h2>
-
       <button
         className="close-cart"
         onClick={() => setShowCart(false)}
@@ -271,16 +263,29 @@ const finalTotal = totalPrice + deliveryCharge;
         ✖
       </button>
     </div>
-
     {cart.length === 0 ? (
       <p>Cart is empty</p>
     ) : (
       <>
-        {cart.map((item, index) => (
-          <p key={index}>
-            {item.name} - {item.price}
-          </p>
-        ))}
+      {cart.map((item, index) => (
+  <div
+    key={index}
+    className="cart-item"
+  >
+    <div>
+      <strong>{item.name}</strong>
+      <br />
+      {item.price}
+    </div>
+
+    <button
+      className="remove-btn"
+      onClick={() => removeFromCart(index)}
+    >
+      ✖
+    </button>
+  </div>
+))}
 
         <hr />
 
