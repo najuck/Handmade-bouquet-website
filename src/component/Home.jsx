@@ -1,4 +1,4 @@
-import React ,{ useState ,useRef} from "react";
+import React ,{ useState ,useRef , useEffect} from "react";
 import "./Home.css";
 import bluemoonlily from "../assets/bluemoonlily.jpeg";
 import blushblossom from "../assets/blushblossom.jpeg";
@@ -22,12 +22,15 @@ import beerbouquet from "../assets/beer1.jpeg";
 import divineblessings from "../assets/divineblessings.jpeg";
 import winewonder from "../assets/winewonder1.jpeg";
 import CustomerReviews from "./CustomerReviews";
-const Home = () => {
-  const [cart, setCart] = useState([]);
-  const [showCart, setShowCart] = useState(false);
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+const Home = ({ cart, setCart, showCart, setShowCart }) => {
   const [toast, setToast] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [wishlist, setWishlist] = useState(() => {
+  const savedWishlist = localStorage.getItem("wishlist");
+  return savedWishlist ? JSON.parse(savedWishlist) : [];
+});
   const productsRef = useRef(null);
-
 const scrollToProducts = () => {
   productsRef.current.scrollIntoView({
     behavior: "smooth",
@@ -35,13 +38,22 @@ const scrollToProducts = () => {
 };
 const addToCart = (product) => {
   setCart([...cart, product]);
-
   setToast(`${product.name} added to cart 💖`);
-
   setTimeout(() => {
     setToast("");
   }, 3000);
 };
+const toggleWishlist = (product) => {
+  const exists = wishlist.find((item) => item.id === product.id);
+  if (exists) {
+    setWishlist(wishlist.filter((item) => item.id !== product.id));
+  } else {
+    setWishlist([...wishlist, product]);
+  }
+};
+useEffect(() => {
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+}, [wishlist]);
 const removeFromCart = (indexToRemove) => {
   const updatedCart = cart.filter((_, index) => index !== indexToRemove);
   setCart(updatedCart);
@@ -206,27 +218,79 @@ const finalTotal = totalPrice + deliveryCharge;
             </button>
         </div>      
       </section>
-      <div className="cart-button">
-  <button onClick={() => setShowCart(!showCart)}>
-    🛒 Cart ({cart.length})
-  </button>
-</div>
       <div className="delivery-banner">
   🚚 Same Day Delivery Available | 💐 Fresh Flowers Guaranteed
 </div>
+{/* Featured Collection */}
+<section className="featured">
+  <h2>⭐ Featured Collection</h2>
+  <p>Our Best Selling Handmade Bouquets</p>
+
+  <div className="featured-grid">
+
+    <div className="featured-card">
+      <img src={rose} alt="Rose Bouquet" />
+      <h3>Rose Bouquet</h3>
+    </div>
+
+    <div className="featured-card">
+      <img src={candygarden} alt="Candy Garden" />
+      <h3>Candy Garden</h3>
+    </div>
+
+    <div className="featured-card">
+      <img src={pinkvelvetbouquet} alt="Pink Velvet" />
+      <h3>Pink Velvet</h3>
+    </div>
+
+    <div className="featured-card">
+      <img src={Cherishedmemory} alt="Cherished Memory" />
+      <h3>Cherished Memory</h3>
+    </div>
+
+  </div>
+</section>
+{/* Categories */}
+<section className="categories">
+  <h2>🌸 Shop by Category</h2>
+
+  <div className="category-grid">
+    <div className="category-card">💐 Bouquets</div>
+
+    <div className="category-card">🪴 Flower Pots</div>
+
+    <div className="category-card">🚗 Car Hangings</div>
+
+    <div className="category-card">🔑 Keychains</div>
+
+    <div className="category-card">🍺 Beer Bouquets</div>
+
+  </div>
+</section>
+
       {/* Products */}
     <section className="products" ref={productsRef}>
         <h2>Our Beautiful Bouquets</h2>
         <div className="product-grid">
           {products.map((product) => (
             <div className="card" key={product.id}>
-              <img src={product.image} alt={product.name} />
-              <h3>{product.name}</h3>
-              <p className="price">{product.price}</p>
-               <button onClick={() => addToCart(product)}>
-                Add to Cart
-                </button>
-            </div>
+              <button
+  className="wishlist-btn"
+  onClick={() => toggleWishlist(product)}
+>
+  {wishlist.find((item) => item.id === product.id) ? "❤️" : "🤍"}
+</button>
+  <img src={product.image} alt={product.name} />
+
+  <h3>{product.name}</h3>
+
+  <p className="price">{product.price}</p>
+
+  <button onClick={() => addToCart(product)}>
+    Add to Cart
+  </button>
+
+</div>
           ))}
         </div>
       </section>

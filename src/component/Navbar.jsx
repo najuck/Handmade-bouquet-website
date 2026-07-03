@@ -1,14 +1,47 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
+import { FaHeart, FaShoppingCart, FaSearch } from "react-icons/fa";
+import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ cart, showCart, setShowCart }) => {
   return (
-    <div className='navbar'>
-        <Link to ="/">Home</Link>
-        <Link to ="/about">About</Link>
-        <Link to ="/contact">Contact</Link>
-    </div>
-  )
-}
+    <nav className="navbar">
 
-export default Navbar
+      <div className="logo">
+        🌸Pipeful Bloom🌸
+      </div>
+
+      <div className="nav-links">
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+      </div>
+      <div className="search-box">
+  <FaSearch className="search-icon" />
+  <input
+    type="text"
+    placeholder="Search bouquets..."
+  />
+</div>
+
+      <div className="nav-icons">
+        <button className="icon-btn">
+          <FaHeart />
+        </button>
+
+        <button
+  className="icon-btn"
+  onClick={() => setShowCart(!showCart)}
+>
+  <FaShoppingCart />
+  {cart.length > 0 && (
+    <span className="cart-count">{cart.length}</span>
+  )}
+</button>
+      </div>
+
+    </nav>
+  );
+};
+
+export default Navbar;
