@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaHeart, FaShoppingCart, FaSearch } from "react-icons/fa";
 import "./Navbar.css";
 
-const Navbar = ({ cart, showCart, setShowCart }) => {
+const Navbar = ({ cart, showCart, setShowCart, searchTerm, setSearchTerm ,wishlist, showWishlist,setShowWishlist }) => {
   return (
     <nav className="navbar">
 
@@ -17,17 +17,32 @@ const Navbar = ({ cart, showCart, setShowCart }) => {
         <Link to="/contact">Contact</Link>
       </div>
       <div className="search-box">
-  <FaSearch className="search-icon" />
   <input
     type="text"
     placeholder="Search bouquets..."
+    value={searchTerm}
+    onChange={(e) => {
+  console.log(e.target.value);
+  setSearchTerm(e.target.value);
+}}
   />
 </div>
+      
 
       <div className="nav-icons">
-        <button className="icon-btn">
-          <FaHeart />
-        </button>
+        <button
+  className="icon-btn"
+  onClick={() => setShowWishlist(!showWishlist)}
+>
+  <FaHeart />
+
+  {wishlist.length > 0 && (
+    <span className="cart-count">
+      {wishlist.length}
+    </span>
+  )}
+</button>
+        
 
         <button
   className="icon-btn"

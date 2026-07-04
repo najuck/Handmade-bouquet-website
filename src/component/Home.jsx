@@ -23,13 +23,19 @@ import divineblessings from "../assets/divineblessings.jpeg";
 import winewonder from "../assets/winewonder1.jpeg";
 import CustomerReviews from "./CustomerReviews";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-const Home = ({ cart, setCart, showCart, setShowCart }) => {
+const Home = ({
+  cart,
+  setCart,
+  showCart,
+  setShowCart,
+  showWishlist,
+  setShowWishlist,
+  searchTerm,
+  wishlist,
+  setWishlist,
+}) => {
   const [toast, setToast] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [wishlist, setWishlist] = useState(() => {
-  const savedWishlist = localStorage.getItem("wishlist");
-  return savedWishlist ? JSON.parse(savedWishlist) : [];
-});
+ 
   const productsRef = useRef(null);
 const scrollToProducts = () => {
   productsRef.current.scrollIntoView({
@@ -192,6 +198,12 @@ const finalTotal = totalPrice + deliveryCharge;
       price:"₹499",
     },
   ];
+  const filteredProducts = products.filter((item) =>
+  item.name.toLowerCase().includes((searchTerm || "").toLowerCase())
+);
+console.log("Search Term:", searchTerm);
+console.log("Filtered Products:", filteredProducts);
+
   return (
     <div className="home">
       {toast && (
@@ -200,6 +212,7 @@ const finalTotal = totalPrice + deliveryCharge;
   </div>
 )}
       {/* Hero Section */}
+      {searchTerm == "" && (
       <section
         className="hero"
         style={{
@@ -218,10 +231,14 @@ const finalTotal = totalPrice + deliveryCharge;
             </button>
         </div>      
       </section>
+      )}
+      {searchTerm == "" && (
       <div className="delivery-banner">
   🚚 Same Day Delivery Available | 💐 Fresh Flowers Guaranteed
 </div>
+      )}
 {/* Featured Collection */}
+{searchTerm == "" && (
 <section className="featured">
   <h2>⭐ Featured Collection</h2>
   <p>Our Best Selling Handmade Bouquets</p>
@@ -250,7 +267,9 @@ const finalTotal = totalPrice + deliveryCharge;
 
   </div>
 </section>
+)}
 {/* Categories */}
+{searchTerm == "" && (
 <section className="categories">
   <h2>🌸 Shop by Category</h2>
 
@@ -267,14 +286,19 @@ const finalTotal = totalPrice + deliveryCharge;
 
   </div>
 </section>
+)}
 
       {/* Products */}
     <section className="products" ref={productsRef}>
-        <h2>Our Beautiful Bouquets</h2>
+        <h2>
+  {searchTerm
+    ? `Search Results for "${searchTerm}"`
+    : "Our Beautiful Bouquets"}
+</h2>
         <div className="product-grid">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <div className="card" key={product.id}>
-              <button
+              <button 
   className="wishlist-btn"
   onClick={() => toggleWishlist(product)}
 >
@@ -316,6 +340,63 @@ const finalTotal = totalPrice + deliveryCharge;
         </div>
       </section>
       <CustomerReviews />
+      {showWishlist && (
+  <div className="cart-box">
+    <div className="cart-header">
+      <h2>❤️ My Wishlist</h2>
+
+      <button
+        className="close-cart"
+        onClick={() => setShowWishlist(false)}
+      >
+        ✖
+      </button>
+    </div>
+
+    {wishlist.length === 0 ? (
+      <p>Your wishlist is empty ❤️</p>
+    ) : (
+      <>
+        {wishlist.map((item) => (
+          <div key={item.id} className="cart-item">
+           <div>
+  <strong>{item.name}</strong>
+  <br />
+  {item.price}
+</div>
+
+<div className="wishlist-buttons">
+
+  <button
+    onClick={() => {
+      setCart([...cart, item]);
+
+      setWishlist(
+        wishlist.filter((product) => product.id !== item.id)
+      );
+    }}
+  >
+    🛒 Move to Cart
+  </button>
+
+  <button
+    className="remove-btn"
+    onClick={() =>
+      setWishlist(
+        wishlist.filter((product) => product.id !== item.id)
+      )
+    }
+  >
+    ✖
+  </button>
+
+</div>
+          </div>
+        ))}
+      </>
+    )}
+  </div>
+)}
       {showCart && (
   <div className="cart-box">
     <div className="cart-header">
