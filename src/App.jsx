@@ -5,7 +5,8 @@ import Home from "./component/Home";
 import Contact from "./component/Contact";
 import About from "./component/About";
 import Footer from "./component/Footer";
-
+import Checkout  from "./component/Checkout";
+import OrderSuccess from "./component/OrderSuccess";
 const App = () => {
   const [cart, setCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
@@ -14,12 +15,7 @@ const App = () => {
   return savedWishlist ? JSON.parse(savedWishlist) : [];
 });
 const [showWishlist, setShowWishlist] = useState(false);
-
 const [searchTerm, setSearchTerm] = useState("");
-
-
-
-
   return (
     <BrowserRouter>
       <Navbar
@@ -51,6 +47,19 @@ const [searchTerm, setSearchTerm] = useState("");
         />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route
+  path="/checkout"
+  element={
+    <Checkout
+      cart={cart}
+      setCart={setCart}
+    />
+  }
+/>
+<Route
+  path="/success"
+  element={<OrderSuccess />}
+/>
       </Routes>
       <Footer />
     </BrowserRouter>

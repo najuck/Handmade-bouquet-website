@@ -1,0 +1,82 @@
+.checkout {
+  min-height: 100vh;
+  background: #fff8fb;
+  padding: 40px;
+}
+
+.checkout h1 {
+  text-align: center;
+  color: #ff4f8b;
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+
+.checkout-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.customer-details,
+.order-summary {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.customer-details {
+  width: 420px;
+}
+
+.order-summary {
+  width: 350px;
+}
+
+.customer-details h2,
+.order-summary h2 {
+  color: #ff4f8b;
+  margin-bottom: 20px;
+}
+
+.customer-details input,
+.customer-details textarea,
+.customer-details select {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.customer-details textarea {
+  height: 100px;
+  resize: none;
+}
+
+.order-summary p {
+  margin: 10px 0;
+}
+
+.order-summary h3 {
+  margin: 20px 0;
+  color: #ff4f8b;
+}
+
+.order-summary button {
+  width: 100%;
+  padding: 12px;
+  background: #ff4f8b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.order-summary button:hover {
+  background: #e63c77;
+}

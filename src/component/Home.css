@@ -392,13 +392,11 @@ margin:15px 0;
   font-size:38px;
   margin-bottom:35px;
 }
-
 .category-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:20px;
 }
-
 .category-card{
   background:white;
   padding:30px;
@@ -410,7 +408,6 @@ margin:15px 0;
   box-shadow:0 5px 15px rgba(0,0,0,.1);
   transition:.3s;
 }
-
 .category-card:hover{
   transform:translateY(-8px);
   background:#ff4d88;
@@ -421,7 +418,20 @@ margin:15px 0;
     gap:10px;
     margin-top:8px;
 }
-
 .wishlist-buttons button{
     cursor:pointer;
+}
+.checkout-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  background: #ff4f8b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.checkout-btn:hover {
+  background: #e63c77;
 }

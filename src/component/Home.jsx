@@ -1,4 +1,5 @@
 import React ,{ useState ,useRef , useEffect} from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import bluemoonlily from "../assets/bluemoonlily.jpeg";
 import blushblossom from "../assets/blushblossom.jpeg";
@@ -34,6 +35,7 @@ const Home = ({
   wishlist,
   setWishlist,
 }) => {
+  console.log("Wishlist:", wishlist);
   const [toast, setToast] = useState("");
  
   const productsRef = useRef(null);
@@ -302,7 +304,7 @@ console.log("Filtered Products:", filteredProducts);
   className="wishlist-btn"
   onClick={() => toggleWishlist(product)}
 >
-  {wishlist.find((item) => item.id === product.id) ? "❤️" : "🤍"}
+  {wishlist?.find((item) => item.id === product.id) ? "❤️" : "🤍"}
 </button>
   <img src={product.image} alt={product.name} />
 
@@ -433,10 +435,14 @@ console.log("Filtered Products:", filteredProducts);
 ))}
 
         <hr />
-
         <p>Subtotal: ₹{totalPrice}</p>
         <p>Delivery: ₹{deliveryCharge}</p>
         <h3>Total: ₹{finalTotal}</h3>
+        <Link to="/checkout">
+  <button className="checkout-btn">
+    Proceed to Checkout
+  </button>
+</Link>
       </>
     )}
   </div>

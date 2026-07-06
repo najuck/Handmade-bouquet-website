@@ -1,0 +1,37 @@
+.success-page {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff7fb;
+}
+
+.success-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 450px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+}
+
+.tick {
+  font-size: 70px;
+}
+
+.success-card h1 {
+  color: #ff4f8b;
+}
+
+.success-card button {
+  background: #ff4f8b;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.success-card button:hover {
+  background: #e63c77;
+}
