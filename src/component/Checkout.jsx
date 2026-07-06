@@ -18,6 +18,8 @@ const Checkout = ({ cart, setCart }) => {
     (sum, item) => sum + Number(item.price.replace("₹", "")),
     0
   );
+  const deliveryCharge = 250;
+const finalTotal = total + deliveryCharge;
 
   const handleChange = (e) => {
     setForm({
@@ -114,9 +116,14 @@ const Checkout = ({ cart, setCart }) => {
           ))}
 
           <hr />
+          <p>Subtotal : ₹{total}</p>
 
-          <h3>Total : ₹{total}</h3>
+<p>Delivery : ₹{deliveryCharge}</p>
 
+<hr />
+
+<h3>Total : ₹{finalTotal}</h3>
+          
           <button onClick={placeOrder}>
             Place Order
           </button>
