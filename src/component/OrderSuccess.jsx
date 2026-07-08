@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./OrderSuccess.css";
 
 const OrderSuccess = () => {
-  const orderId = "PB" + Math.floor(100000 + Math.random() * 900000);
+  const [orderData, setOrderData] = useState(null);
+
+  useEffect(() => {
+    const lastOrder = localStorage.getItem("lastOrder");
+    if (lastOrder) {
+      setOrderData(JSON.parse(lastOrder));
+    }
+  }, []);
+
+  const orderId = orderData?.orderId || ("PB" + Math.floor(100000 + Math.random() * 900000));
 
   return (
     <div className="success-page">
@@ -17,6 +26,17 @@ const OrderSuccess = () => {
         </p>
 
         <h3>Order ID: #{orderId}</h3>
+
+        {orderData && (
+          <div className="order-details" style={{ marginTop: "20px", textAlign: "left", background: "#f5f5f5", padding: "15px", borderRadius: "8px" }}>
+            <h4>Order Details:</h4>
+            <p><strong>Name:</strong> {orderData.customerInfo.name}</p>
+            <p><strong>Phone:</strong> {orderData.customerInfo.phone}</p>
+            <p><strong>Address:</strong> {orderData.customerInfo.address}, {orderData.customerInfo.city} - {orderData.customerInfo.pincode}</p>
+            <p><strong>Total Items:</strong> {orderData.items.length}</p>
+            <p><strong>Total Amount:</strong> ₹{orderData.totalAmount}</p>
+          </div>
+        )}
 
         <Link to="/">
           <button>Continue Shopping</button>

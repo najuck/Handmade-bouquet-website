@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./component/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./component/Home";
@@ -8,7 +8,10 @@ import Footer from "./component/Footer";
 import Checkout  from "./component/Checkout";
 import OrderSuccess from "./component/OrderSuccess";
 const App = () => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
   const [showCart, setShowCart] = useState(false);
   const [wishlist, setWishlist] = useState(() => {
   const savedWishlist = localStorage.getItem("wishlist");
@@ -16,6 +19,14 @@ const App = () => {
 });
 const [showWishlist, setShowWishlist] = useState(false);
 const [searchTerm, setSearchTerm] = useState("");
+
+useEffect(() => {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}, [cart]);
+
+useEffect(() => {
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+}, [wishlist]);
   return (
     <BrowserRouter>
       <Navbar

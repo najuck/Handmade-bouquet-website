@@ -49,6 +49,19 @@ const finalTotal = total + deliveryCharge;
     return;
   }
 
+  // Generate Order ID
+  const orderId = "PB" + Math.floor(100000 + Math.random() * 900000);
+
+  // Save Order Details to localStorage
+  const orderData = {
+    orderId,
+    customerInfo: form,
+    items: cart,
+    totalAmount: finalTotal,
+    timestamp: new Date().toISOString(),
+  };
+  localStorage.setItem("lastOrder", JSON.stringify(orderData));
+
   // Cart Empty
   setCart([]);
 

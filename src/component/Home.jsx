@@ -1,29 +1,16 @@
 import React ,{ useState ,useRef , useEffect} from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import bluemoonlily from "../assets/bluemoonlily.jpeg";
-import blushblossom from "../assets/blushblossom.jpeg";
-import candygarden from "../assets/candygarden.jpeg";
-import lavendardreams from "../assets/lavendardreams.jpeg";
-import oceanlily from "../assets/oceanlily.jpeg";
-import rose from "../assets/rose.jpeg";
-import sunflower from "../assets/sunflower.jpeg";
-import Cherishedmemory from "../assets/cherishedmemoriesbouqet.jpeg";
-import cottoncandybloom from "../assets/cottoncandybloom.jpeg";
-import littlejoypot from "../assets/littlejoypot.jpeg";
-import guardianbloom from "../assets/guardianbloom.jpeg";
-import midnightskybouquet from "../assets/midnightskybouquet.jpeg";
-import pinkvelvetbouquet from "../assets/pinkvelvetbouqet.jpeg";
-import softblushbouquet from "../assets/softblushbouquet.jpeg";
-import violetgrace from "../assets/violetgrace.jpeg";
-import carhanging from "../assets/carhang.jpeg";
-import blueserenitybouquet from "../assets/blueserenity.jpeg";
-import blushblossompot from "../assets/blushpot.jpeg";
-import beerbouquet from "../assets/beer1.jpeg";
-import divineblessings from "../assets/divineblessings.jpeg";
-import winewonder from "../assets/winewonder1.jpeg";
 import CustomerReviews from "./CustomerReviews";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+
+// Dynamically import all images from assets folder
+const images = import.meta.glob('../../assets/*.jpeg', { eager: true });
+
+// Helper function to get image path
+const getImagePath = (filename) => {
+  return images[`../../assets/${filename}`]?.default || '';
+};
 const Home = ({
   cart,
   setCart,
@@ -75,129 +62,177 @@ const finalTotal = totalPrice + deliveryCharge;
   const products = [
     {
       id: 1,
-      image: bluemoonlily,
+      image: getImagePath('bluemoonlily.jpeg'),
       name: "Blue Moon Lily Bouquet",
       price: "₹999",
     },
     {
       id: 2,
-      image: blushblossom,
+      image: getImagePath('blushblossom.jpeg'),
       name: "Blush Blossom Bouquet",
       price: "₹699",
     },
     {
       id: 3,
-      image: candygarden,
+      image: getImagePath('candygarden.jpeg'),
       name: "Candy Garden Bouquet",
       price: "₹1299",
     },
     {
       id: 4,
-      image: lavendardreams,
+      image: getImagePath('lavendardreams.jpeg'),
       name: "Lavender Dreams Bouquet",
       price: "₹899",
     },
     {
       id: 5,
-      image: oceanlily,
+      image: getImagePath('oceanlily.jpeg'),
       name: "Ocean Lily Bouquet",
       price: "₹999",
     },
     {
       id: 6,
-      image: rose,
+      image: getImagePath('rose.jpeg'),
       name: "Rose Bouquet",
       price: "₹1599",
     },
     {
       id: 7,
-      image: sunflower,
+      image: getImagePath('sunflower.jpeg'),
       name: "Sunflower Bouquet",
       price: "₹649",
     },
     {
       id: 8,
-      image: Cherishedmemory,
+      image: getImagePath('cherishedmemoriesbouqet.jpeg'),
       name: "Cherished Memory Bouquet",
       price: "₹1799",
     },
     {
       id: 9,
-      image: cottoncandybloom,
+      image: getImagePath('cottoncandybloom.jpeg'),
       name: "Cotton Candy Bloom",
       price : "₹1399",
     },
     {
       id: 10,
-      image:littlejoypot,
+      image: getImagePath('littlejoypot.jpeg'),
       name: "Little Joy Pot",
       price : "₹299",
     },
     {
       id:11,
-      image:guardianbloom,
+      image: getImagePath('guardianbloom.jpeg'),
       name: "Guardian Bloom",
       price : "₹599",
     },
     {
       id:12,
-      image:midnightskybouquet,
+      image: getImagePath('midnightskybouquet.jpeg'),
       name:"Midnight Sky Bouquet",
       price : "₹799",
     },
     {
       id:13,
-      image:pinkvelvetbouquet,
+      image: getImagePath('pinkvelvetbouqet.jpeg'),
       name:"Pink Velvet Bouquet",
       price: "₹1899",
     },
     {
       id:14,
-      image:softblushbouquet,
+      image: getImagePath('softblushbouquet.jpeg'),
       name:"Soft Blush Bouquet",
       price:"₹1199",
     },
     {
       id:15,
-      image:violetgrace,
+      image: getImagePath('violetgrace.jpeg'),
       name:"Violet Grace Bouquet",
       price:"₹699",
     },
     {
       id:16,
-      image:carhanging,
+      image: getImagePath('carhang.jpeg'),
       name:"Sunflower Car Hanging",
       price:"₹320",
     },
     {
       id:17,
-      image:blueserenitybouquet,
+      image: getImagePath('blueserenity.jpeg'),
       name:"Blue Serenity Bouquet",
       price:"₹499",
     },
     {
       id:18,
-      image:blushblossompot,
+      image: getImagePath('blushpot.jpeg'),
       name:"Blush Blossom Pot",
       price:"₹420",
     },
     {
       id:19,
-      image:beerbouquet,
+      image: getImagePath('beer1.jpeg'),
       name:"Beer Bouquet",
       price: "₹2299",
     },
     {
       id:20,
-      image:divineblessings,
+      image: getImagePath('divineblessings.jpeg'),
       name:"Divine Blessings Bouquet",
       price: "₹899",
     },
     {
       id:21,
-      image:winewonder,
+      image: getImagePath('winewonder1.jpeg'),
       name:"Wine Wonder Bouquet",
       price:"₹499",
+    },
+    {
+      id:22,
+      image: getImagePath('bloomiepot.jpeg'),
+      name:"Bloomie Pot",
+      price:"₹320",
+    },
+    {
+      id:23,
+      image: getImagePath('keychain.jpeg'),
+      name:"Pipeful Initial Keychains",
+      price:"₹120",
+    },
+    {
+      id:24,
+      image: getImagePath('keychain1.jpeg'),
+      name:"Sunflower Keychain",
+      price:"₹150",
+    },
+    {
+      id:25,
+      image: getImagePath('keychain2.jpeg'),
+      name:"Velvet Petal Keychain",
+      price:"₹150",
+    },
+    {
+      id:26,
+      image: getImagePath('keychain3.jpeg'),
+      name:"Blue Petal Keychain",
+      price:"₹150",
+    },
+    {
+      id:27,
+      image: getImagePath('keychain4.jpeg'),
+      name:"Tiny Bow Keychain",
+      price:"₹59",
+    },
+    {
+      id:28,
+      image: getImagePath('mint.jpeg'),
+      name:"Minty Fresh Bouquet",
+      price:"₹1699",
+    },
+    {
+      id:30,
+      image: getImagePath('forever.jpeg'),
+      name:"Forever Bloom Bouquet",
+      price:"₹1299",
     },
   ];
   const filteredProducts = products.filter((item) =>
@@ -218,7 +253,7 @@ console.log("Filtered Products:", filteredProducts);
       <section
         className="hero"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${bluemoonlily})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${getImagePath('bluemoonlily.jpeg')})`,
         }}
       >
         <div className="hero-content">
@@ -248,22 +283,22 @@ console.log("Filtered Products:", filteredProducts);
   <div className="featured-grid">
 
     <div className="featured-card">
-      <img src={rose} alt="Rose Bouquet" />
+      <img src={getImagePath('rose.jpeg')} alt="Rose Bouquet" />
       <h3>Rose Bouquet</h3>
     </div>
 
     <div className="featured-card">
-      <img src={candygarden} alt="Candy Garden" />
+      <img src={getImagePath('candygarden.jpeg')} alt="Candy Garden" />
       <h3>Candy Garden</h3>
     </div>
 
     <div className="featured-card">
-      <img src={pinkvelvetbouquet} alt="Pink Velvet" />
+      <img src={getImagePath('pinkvelvetbouqet.jpeg')} alt="Pink Velvet" />
       <h3>Pink Velvet</h3>
     </div>
 
     <div className="featured-card">
-      <img src={Cherishedmemory} alt="Cherished Memory" />
+      <img src={getImagePath('cherishedmemoriesbouqet.jpeg')} alt="Cherished Memory" />
       <h3>Cherished Memory</h3>
     </div>
 
