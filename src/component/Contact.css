@@ -1,78 +1,61 @@
 .contact{
-
     background:#fff8fb;
     font-family:Arial, Helvetica, sans-serif;
     min-height:100vh;
-
 }
 
 /* Hero */
 
 .contact-hero{
-
     background:linear-gradient(135deg,#ffc1d9,#ffdceb);
     padding:80px 20px;
     text-align:center;
     color:#fff;
-
 }
 
 .contact-hero h1{
-
     font-size:48px;
     margin-bottom:20px;
-
 }
 
 .contact-hero p{
-
     font-size:18px;
     max-width:700px;
     margin:auto;
     line-height:1.8;
-
 }
 
 /* Main Section */
 
 .contact-container{
-
     width:90%;
     margin:70px auto;
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:40px;
-
 }
 
 /* Left */
 
 .contact-info{
-
     background:white;
     padding:40px;
     border-radius:25px;
     box-shadow:0 8px 20px rgba(0,0,0,.08);
-
 }
 
 .contact-info h2{
-
     color:#ff5f95;
     margin-bottom:20px;
-
 }
 
 .contact-info p{
-
     color:#666;
     line-height:1.8;
     margin-bottom:30px;
-
 }
 
 .info-box{
-
     background:#ffeef5;
     padding:15px 20px;
     margin-bottom:18px;
@@ -81,61 +64,47 @@
     align-items:center;
     gap:15px;
     font-size:18px;
-
 }
 
 .info-box span{
-
     color:#555;
-
 }
 
 /* Right */
 
 .contact-form{
-
     background:white;
     padding:40px;
     border-radius:25px;
     box-shadow:0 8px 20px rgba(0,0,0,.08);
-
 }
 
 .contact-form h2{
-
     color:#ff5f95;
     margin-bottom:25px;
-
 }
 
 .contact-form form{
-
     display:flex;
     flex-direction:column;
     gap:18px;
-
 }
 
 .contact-form input,
 .contact-form textarea{
-
     padding:15px;
     border-radius:12px;
     border:1px solid #ffd0e0;
     font-size:16px;
     outline:none;
-
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus{
-
     border-color:#ff5f95;
-
 }
 
 .contact-form button{
-
     background:#ff5f95;
     color:white;
     border:none;
@@ -144,30 +113,58 @@
     font-size:17px;
     cursor:pointer;
     transition:.3s;
-
 }
 
 .contact-form button:hover{
-
     background:#ff3d80;
     transform:translateY(-3px);
-
 }
 
 /* Responsive */
 
+@media(max-width:1024px){
+  .contact-container{
+    gap:30px;
+    width:95%;
+  }
+}
+
 @media(max-width:768px){
-
 .contact-container{
-
 grid-template-columns:1fr;
+}
 
+.contact-hero{
+    padding:60px 18px;
 }
 
 .contact-hero h1{
-
 font-size:36px;
-
 }
 
+.contact-hero p{
+  font-size:16px;
+}
+
+.contact-info,
+.contact-form{
+  padding:30px;
+}
+
+.info-box{
+  font-size:16px;
+}
+}
+
+@media(max-width:520px){
+  .contact-hero{
+    padding:50px 16px;
+  }
+  .contact-info,
+  .contact-form{
+    padding:24px;
+  }
+  .contact-form button{
+    font-size:16px;
+  }
 }

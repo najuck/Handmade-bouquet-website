@@ -23,7 +23,7 @@ const Home = ({
   setWishlist,
 }) => {
   console.log("Wishlist:", wishlist);
-  const [toast, setToast] = useState("");
+const [toast, setToast] = useState("");
  
   const productsRef = useRef(null);
 const scrollToProducts = () => {
