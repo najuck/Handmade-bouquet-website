@@ -100,7 +100,7 @@ const finalTotal = totalPrice + deliveryCharge;
       id: 7,
       image: getImagePath('sunflower.jpeg'),
       name: "Sunflower Bouquet",
-      price: "₹649",
+      price: "₹299",
     },
     {
       id: 8,

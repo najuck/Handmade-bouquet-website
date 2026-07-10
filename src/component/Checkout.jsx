@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Checkout.css";
+import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
+import emailjs from "@emailjs/browser";
 
 const Checkout = ({ cart, setCart }) => {
   const [form, setForm] = useState({
     name: "",
+    email: "",
     phone: "",
     address: "",
     city: "",
@@ -27,9 +31,11 @@ const finalTotal = total + deliveryCharge;
       [e.target.name]: e.target.value,
     });
   };
-  const placeOrder = () => {
+const placeOrder = async () => {
+  console.log("Placing order with data:", form, cart, finalTotal);
   if (
     !form.name ||
+    !form.email ||
     !form.phone ||
     !form.address ||
     !form.city ||
@@ -51,22 +57,54 @@ const finalTotal = total + deliveryCharge;
 
   // Generate Order ID
   const orderId = "PB" + Math.floor(100000 + Math.random() * 900000);
-
-  // Save Order Details to localStorage
+   console.log("Generated Order ID:", orderId);
+  // Create Order Object
   const orderData = {
     orderId,
     customerInfo: form,
     items: cart,
     totalAmount: finalTotal,
-    timestamp: new Date().toISOString(),
+    timestamp: new Date(),
   };
-  localStorage.setItem("lastOrder", JSON.stringify(orderData));
 
-  // Cart Empty
-  setCart([]);
+  try {
+    // Save Order in Firestore
+    await addDoc(collection(db, "orders"), orderData);
+       
+    console.log("Order saved in Firestore:", orderData);
+    // Save latest order for Success Page
+    localStorage.setItem("lastOrder", JSON.stringify(orderData));
 
-  // Success Page
-  navigate("/success");
+const templateParams = {
+  email: form.email,
+  customer_name: form.name,
+  order_id: orderId,
+  products: cart.map(item => `${item.name} - ${item.price}`).join("\n"),
+  total: finalTotal,
+  address: `${form.address}, ${form.city} - ${form.pincode}`,
+  phone: form.phone,
+  payment: form.payment,
+};
+    console.log("Email Parameters:", templateParams);
+
+    const response = await emailjs.send(
+      "service_bk5k8nq",
+      "template_nwdmbgf",
+      templateParams,
+      "uW3FVcVAMKkmH8gEY"
+    );
+
+    console.log("EmailJS Response:", response);
+    setCart([]);
+    navigate("/success");
+
+  }catch (error) {
+  console.log("EmailJS Full Error:", error);
+  console.log("Status:", error.status);
+  console.log("Text:", error.text);
+
+  alert(error.text || "Something went wrong");
+}
 };
 
   return (
@@ -82,6 +120,13 @@ const finalTotal = total + deliveryCharge;
             type="text"
             name="name"
             placeholder="Full Name"
+            onChange={handleChange}
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
             onChange={handleChange}
           />
 
