@@ -66,8 +66,15 @@
     font-size:18px;
 }
 
-.info-box span{
+.info-box span,
+.contact-link {
     color:#555;
+    text-decoration:none;
+}
+
+.contact-link:hover {
+    color:#ff5f95;
+    text-decoration:underline;
 }
 
 /* Right */

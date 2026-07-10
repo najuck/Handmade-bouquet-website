@@ -5,11 +5,11 @@ import CustomerReviews from "./CustomerReviews";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 // Dynamically import all images from assets folder
-const images = import.meta.glob('../../assets/*.jpeg', { eager: true });
+const images = import.meta.glob('../assets/*.jpeg', { eager: true });
 
 // Helper function to get image path
 const getImagePath = (filename) => {
-  return images[`../../assets/${filename}`]?.default || '';
+  return images[`../assets/${filename}`]?.default || '';
 };
 const Home = ({
   cart,

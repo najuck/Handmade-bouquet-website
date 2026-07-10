@@ -35,6 +35,8 @@ const OrderSuccess = () => {
             <p><strong>Address:</strong> {orderData.customerInfo.address}, {orderData.customerInfo.city} - {orderData.customerInfo.pincode}</p>
             <p><strong>Total Items:</strong> {orderData.items.length}</p>
             <p><strong>Total Amount:</strong> ₹{orderData.totalAmount}</p>
+            <p><strong>Payment Method:</strong> {orderData.payment || "UPI"}</p>
+            <p><strong>Payment Status:</strong> {orderData.paymentStatus || "Paid"} ✅</p>
           </div>
         )}
 

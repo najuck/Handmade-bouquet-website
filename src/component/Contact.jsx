@@ -40,18 +40,13 @@ const Contact = () => {
           </div>
 
           <div className="info-box">
-            📱
-            <span>+91 98765 43210</span>
+            �
+            <a href="https://www.instagram.com/pipeful_bloom/" target="_blank" rel="noreferrer" className="contact-link">@pipeful_bloom</a>
           </div>
 
           <div className="info-box">
-            📍
-            <span>India</span>
-          </div>
-
-          <div className="info-box">
-            📷
-            <span>@pipeful_bloom</span>
+            💬
+            <a href="https://wa.me/6280180036" target="_blank" rel="noreferrer" className="contact-link">Chat on WhatsApp</a>
           </div>
 
         </div>

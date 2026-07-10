@@ -32,6 +32,18 @@
   line-height: 1.7;
 }
 
+.footer-link {
+  display: inline-block;
+  margin: 8px 0;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
 .footer hr {
   border: none;
   border-top: 1px solid rgba(255,255,255,0.3);

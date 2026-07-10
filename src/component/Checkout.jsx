@@ -4,6 +4,7 @@ import "./Checkout.css";
 import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import emailjs from "@emailjs/browser";
+import paymentQR from "../assets/qr.jpeg";
 
 const Checkout = ({ cart, setCart }) => {
   const [form, setForm] = useState({
@@ -13,8 +14,10 @@ const Checkout = ({ cart, setCart }) => {
     address: "",
     city: "",
     pincode: "",
-    payment: "Cash on Delivery",
+    payment: "UPI",
   });
+  const [paymentConfirmed, setPaymentConfirmed] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const navigate = useNavigate();
 
@@ -55,6 +58,13 @@ const placeOrder = async () => {
     return;
   }
 
+  if (!paymentConfirmed) {
+    alert("Please confirm that you have completed the payment.");
+    return;
+  }
+
+  setIsProcessing(true);
+
   // Generate Order ID
   const orderId = "PB" + Math.floor(100000 + Math.random() * 900000);
    console.log("Generated Order ID:", orderId);
@@ -64,6 +74,8 @@ const placeOrder = async () => {
     customerInfo: form,
     items: cart,
     totalAmount: finalTotal,
+    payment: form.payment,
+    paymentStatus: "Paid",
     timestamp: new Date(),
   };
 
@@ -98,13 +110,14 @@ const templateParams = {
     setCart([]);
     navigate("/success");
 
-  }catch (error) {
-  console.log("EmailJS Full Error:", error);
-  console.log("Status:", error.status);
-  console.log("Text:", error.text);
+  } catch (error) {
+    console.log("EmailJS Full Error:", error);
+    console.log("Status:", error.status);
+    console.log("Text:", error.text);
+    setIsProcessing(false);
 
-  alert(error.text || "Something went wrong");
-}
+    alert(error.text || "Something went wrong");
+  }
 };
 
   return (
@@ -156,12 +169,31 @@ const templateParams = {
             placeholder="Pincode"
             onChange={handleChange}
           />
+        </div>
 
-          <select name="payment" onChange={handleChange}>
-            <option>Cash on Delivery</option>
-            <option>UPI</option>
-            <option>Credit Card</option>
-          </select>
+        <div className="payment-section">
+          <h3>💳 UPI Payment</h3>
+          <div className="payment-method-display">
+            <span className="payment-method-label">Pay To</span>
+            <span className="payment-method-value">Kritika Kashyap</span>
+          </div>
+          <img src={paymentQR}
+          alt="UPI QR Code"
+          className="payment-qr"></img>
+          <p className="payment-note">Scan the QR code using any UPI app. After completing the payment, tick the checkbox below to place your order. Your order will be confirmed by email after payment.</p>
+          <div className="payment-confirm">
+            <input
+              type="checkbox"
+              checked={paymentConfirmed}
+              onChange={(e) => setPaymentConfirmed(e.target.checked)}
+              id="payment-confirm"
+            />
+            <label htmlFor="payment-confirm">☑ I confirm that I have completed the UPI payment.</label>
+          </div>
+
+          <button className="place-order-button" onClick={placeOrder} disabled={!paymentConfirmed || isProcessing}>
+            {isProcessing ? "⏳ Processing Payment..." : "Place Order"}
+          </button>
         </div>
 
         <div className="order-summary">
@@ -181,12 +213,7 @@ const templateParams = {
 <hr />
 
 <h3>Total : ₹{finalTotal}</h3>
-          
-          <button onClick={placeOrder}>
-            Place Order
-          </button>
         </div>
-
       </div>
     </div>
   );

@@ -17,13 +17,13 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Contact</h3>
           <p>📧 pipefulbloom@gmail.com</p>
-          <p>📱 +91 6280180036</p>
+          <a href="https://www.instagram.com/pipeful_bloom/" target="_blank" rel="noreferrer" className="footer-link">📷 Instagram</a>
+          <a href="https://wa.me/6280180036" target="_blank" rel="noreferrer" className="footer-link">💬 WhatsApp</a>
         </div>
 
         <div className="footer-section">
           <h3>Follow Us</h3>
-          <p>📷 Instagram</p>
-          <p>💬 WhatsApp</p>
+          <p>Stay connected for fresh bouquet updates and special offers.</p>
         </div>
 
       </div>
