@@ -157,26 +157,43 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    padding: 16px 18px;
-    gap: 12px;
+    padding: 8px 12px;
+    gap: 6px;
+    min-height: auto;
   }
   .logo {
     width: 100%;
     text-align: center;
+    gap: 8px;
+  }
+  .logo-image {
+    width: 40px;
+    height: 40px;
+  }
+  .brand-name {
+    font-size: 18px;
+  }
+  .brand-tag {
+    font-size: 11px;
   }
   .nav-links {
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 6px;
+    gap: 6px;
+    margin-top: 2px;
+  }
+  .nav-links a {
+    font-size: 14px;
+    padding: 6px 10px;
   }
   .search-box {
     width: 100%;
     max-width: 540px;
     justify-content: center;
-    margin-top: 8px;
-    margin-bottom: 10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 6px 10px;
   }
   .search-box input {
     width: 100%;
@@ -193,35 +210,53 @@
   .navbar {
     flex-direction: column;
     align-items: stretch;
-    padding: 14px 14px;
+    padding: 6px 10px;
+    gap: 4px;
   }
   .logo {
     width: 100%;
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
+  }
+  .logo-image {
+    width: 36px;
+    height: 36px;
+  }
+  .brand-name {
+    font-size: 16px;
+  }
+  .brand-tag {
+    font-size: 10px;
+    margin-top: 1px;
   }
   .nav-links {
     width: 100%;
-    gap: 10px;
+    gap: 6px;
     justify-content: center;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
   }
   .nav-links a {
-    font-size: 14px;
-    padding: 8px 10px;
+    font-size: 13px;
+    padding: 5px 8px;
   }
   .search-box {
-    padding: 8px 12px;
+    padding: 5px 8px;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
   }
   .search-box input {
     width: 100%;
+    font-size: 13px;
+    margin-left: 6px;
+  }
+  .search-icon {
+    font-size: 13px;
   }
   .nav-icons {
     width: 100%;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
+    margin-top: 2px;
   }
   .icon-btn {
     width: 36px;
@@ -231,6 +266,9 @@
   .cart-count {
     top: -5px;
     right: -5px;
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
   }
   .search-box,
   .nav-links,
