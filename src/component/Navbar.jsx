@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaHeart, FaShoppingCart, FaSearch } from "react-icons/fa";
+import logoImage from "../assets/pipeful-bloom-logo.jpeg";
 import "./Navbar.css";
 
 const Navbar = ({ cart, showCart, setShowCart, searchTerm, setSearchTerm ,wishlist, showWishlist,setShowWishlist }) => {
@@ -8,7 +9,11 @@ const Navbar = ({ cart, showCart, setShowCart, searchTerm, setSearchTerm ,wishli
     <nav className="navbar">
 
       <div className="logo">
-        🌸Pipeful Bloom🌸
+        <img src={logoImage} alt="Pipeful Bloom" className="logo-image" />
+        <div className="logo-text">
+          <span className="brand-name">Pipeful Bloom</span>
+          <span className="brand-tag">by Kritika Kashyap</span>
+        </div>
       </div>
 
       <div className="nav-links">
@@ -17,17 +22,14 @@ const Navbar = ({ cart, showCart, setShowCart, searchTerm, setSearchTerm ,wishli
         <Link to="/contact">Contact</Link>
       </div>
       <div className="search-box">
-  <input
-    type="text"
-    placeholder="Search bouquets..."
-    value={searchTerm}
-    onChange={(e) => {
-  console.log(e.target.value);
-  setSearchTerm(e.target.value);
-}}
-  />
-</div>
-      
+        <FaSearch className="search-icon" />
+        <input
+          type="text"
+          placeholder="Search bouquets..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
 
       <div className="nav-icons">
         <button

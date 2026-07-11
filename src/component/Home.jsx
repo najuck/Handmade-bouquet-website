@@ -70,7 +70,7 @@ const finalTotal = totalPrice + deliveryCharge;
       id: 2,
       image: getImagePath('blushblossom.jpeg'),
       name: "Blush Blossom Bouquet",
-      price: "₹699",
+      price: "₹499",
     },
     {
       id: 3,

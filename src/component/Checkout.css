@@ -173,3 +173,17 @@
 .payment-method-value {
   color: #ff4f8b;
 }
+
+.shipping-policy {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fff4f8;
+  border: 1px solid #ffd7e5;
+}
+
+.shipping-policy p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #7a4b62;
+}

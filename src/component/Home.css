@@ -7,7 +7,7 @@ font-family:Arial, Helvetica, sans-serif;
 
 body {
   min-height: 100vh;
-  background: #fff8fb;
+  background: linear-gradient(180deg, #fffafc 0%, #fff2f7 100%);
 }
 
 .hero{
@@ -48,18 +48,22 @@ font-size:18px;
 border-radius:30px;
 cursor:pointer;
 transition:.3s;
+box-shadow: 0 10px 20px rgba(255, 79, 135, 0.25);
 }
 
 .hero button:hover{
 background:#ff1f67;
+transform: translateY(-2px);
+box-shadow: 0 14px 24px rgba(255, 31, 103, 0.3);
 }
 
 .delivery-banner {
-  background: #fff0f5;
+  background: linear-gradient(90deg, #ffe8f1 0%, #ffdce8 100%);
   text-align: center;
-  padding: 10px;
-  font-weight: 500;
-  color: #ff4d7d;
+  padding: 12px 10px;
+  font-weight: 600;
+  color: #d43f71;
+  border-bottom: 1px solid #ffc7db;
 }
 
 .products{
@@ -82,12 +86,13 @@ gap:30px;
 .card{
 background:white;
 padding:20px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.15);
+border-radius:18px;
+box-shadow:0 10px 24px rgba(0,0,0,.12);
 text-align:center;
 transition:.3s;
 position: relative;
 overflow: hidden;
+border: 1px solid #ffe2eb;
 }
 .wishlist-btn {
   position: absolute;
@@ -117,8 +122,8 @@ overflow: hidden;
   transform: scale(1.1);
 }
 .card:hover{
-transform:translateY(-10px);
-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+transform:translateY(-8px);
+box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16);
 }
 .card img{
 width:100%;
@@ -148,15 +153,17 @@ border:none;
 border-radius:25px;
 cursor:pointer;
 transition: 0.3s;
+box-shadow: 0 8px 16px rgba(255, 79, 135, 0.2);
 }
 .card button:hover{
 background:#ff1f67;
 transform:scale(1.05);
+box-shadow: 0 10px 20px rgba(255, 31, 103, 0.25);
 }
 
 .why{
 padding:60px 8%;
-background:#fff2f6;
+background: linear-gradient(135deg, #fff2f6 0%, #ffeef4 100%);
 }
 
 .why h2{
@@ -178,8 +185,9 @@ width:280px;
 background:white;
 padding:25px;
 text-align:center;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+border-radius:18px;
+box-shadow:0 12px 28px rgba(0,0,0,.10);
+border: 1px solid #ffe2eb;
 }
 
 .feature h3{

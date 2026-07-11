@@ -13,6 +13,7 @@ const Checkout = ({ cart, setCart }) => {
     phone: "",
     address: "",
     city: "",
+    state: "",
     pincode: "",
     payment: "UPI",
   });
@@ -25,8 +26,24 @@ const Checkout = ({ cart, setCart }) => {
     (sum, item) => sum + Number(item.price.replace("₹", "")),
     0
   );
-  const deliveryCharge = 250;
-const finalTotal = total + deliveryCharge;
+
+  const getDeliveryCharge = () => {
+    const city = form.city.trim().toLowerCase();
+    const state = form.state.trim().toLowerCase();
+
+    if (city === "gurdaspur" && state === "punjab") {
+      return 0;
+    }
+
+    if (state === "punjab") {
+      return 150;
+    }
+
+    return 250;
+  };
+
+  const deliveryCharge = getDeliveryCharge();
+  const finalTotal = total + deliveryCharge;
 
   const handleChange = (e) => {
     setForm({
@@ -42,6 +59,7 @@ const placeOrder = async () => {
     !form.phone ||
     !form.address ||
     !form.city ||
+    !form.state ||
     !form.pincode
   ) {
     alert("Please fill all the details.");
@@ -165,6 +183,13 @@ const templateParams = {
 
           <input
             type="text"
+            name="state"
+            placeholder="State"
+            onChange={handleChange}
+          />
+
+          <input
+            type="text"
             name="pincode"
             placeholder="Pincode"
             onChange={handleChange}
@@ -209,6 +234,13 @@ const templateParams = {
           <p>Subtotal : ₹{total}</p>
 
 <p>Delivery : ₹{deliveryCharge}</p>
+
+<div className="shipping-policy">
+  <p><strong>Shipping Policy</strong></p>
+  <p>• Free delivery within Gurdaspur</p>
+  <p>• ₹150 across Punjab</p>
+  <p>• ₹250 for the rest of India</p>
+</div>
 
 <hr />
 
