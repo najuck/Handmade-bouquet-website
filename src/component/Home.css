@@ -256,23 +256,6 @@ margin:15px 0;
   justify-content: center;
   align-items: center;
 }
-.whatsapp-float {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  background: #25D366;
-  color: white;
-  font-size: 22px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  text-decoration: none;
-  z-index: 1000;
-}
 .cart-box {
   position: fixed;
   top: 90px;
@@ -454,7 +437,7 @@ margin:15px 0;
 }
 
 .featured h2 {
-  font-size: 42px;
+  font-size: 24px;
   color: #ff4d88;
   margin-bottom: 10px;
 }

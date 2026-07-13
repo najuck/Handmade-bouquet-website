@@ -18,7 +18,6 @@ const Footer = () => {
           <h3>Contact</h3>
           <p>📧 pipefulbloom@gmail.com</p>
           <a href="https://www.instagram.com/pipeful_bloom/" target="_blank" rel="noreferrer" className="footer-link">📷 Instagram</a>
-          <a href="https://wa.me/6280180036" target="_blank" rel="noreferrer" className="footer-link">💬 WhatsApp</a>
         </div>
 
         <div className="footer-section">

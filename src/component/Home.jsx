@@ -234,6 +234,12 @@ const finalTotal = totalPrice + deliveryCharge;
       name:"Forever Bloom Bouquet",
       price:"₹1199",
     },
+    {
+      id:31,
+      image: getImagePath('blushbear.jpeg'),
+      name:"Pastel Teddy Bouquet",
+      price:"₹1899",
+    },
   ];
   const filteredProducts = products.filter((item) =>
   item.name.toLowerCase().includes((searchTerm || "").toLowerCase())
@@ -320,6 +326,8 @@ console.log("Filtered Products:", filteredProducts);
     <div className="category-card">🔑 Keychains</div>
 
     <div className="category-card">🍺 Beer Bouquets</div>
+
+    <div className="category-card">🧸 Teddy Bouquets</div>
 
   </div>
 </section>
@@ -482,14 +490,6 @@ console.log("Filtered Products:", filteredProducts);
     )}
   </div>
 )}
-      <a
-      href="https://wa.me/6280180036"
-      target="_blank"
-      className="whatsapp-float"
-      >
-        💬
-        </a>
-
     </div>
   );
 };
