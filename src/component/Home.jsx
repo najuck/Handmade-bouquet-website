@@ -118,13 +118,13 @@ const finalTotal = totalPrice + deliveryCharge;
       id: 10,
       image: getImagePath('littlejoypot.jpeg'),
       name: "Little Joy Pot",
-      price : "₹299",
+      price : "₹220",
     },
     {
       id:11,
       image: getImagePath('guardianbloom.jpeg'),
       name: "Guardian Bloom",
-      price : "₹249",
+      price : "₹289",
     },
     {
       id:12,
@@ -136,13 +136,13 @@ const finalTotal = totalPrice + deliveryCharge;
       id:13,
       image: getImagePath('pinkvelvetbouqet.jpeg'),
       name:"Pink Velvet Bouquet",
-      price: "₹1299",
+      price: "₹1199",
     },
     {
       id:14,
       image: getImagePath('softblushbouquet.jpeg'),
       name:"Soft Blush Bouquet",
-      price:"₹1100",
+      price:"₹1099",
     },
     {
       id:15,
@@ -239,6 +239,11 @@ const finalTotal = totalPrice + deliveryCharge;
       image: getImagePath('blushbear.jpeg'),
       name:"Pastel Teddy Bouquet",
       price:"₹1899",
+    },
+    { id:32,
+      image: getImagePath('evileyecar.jpeg'),
+      name:"Evil Eye Car Hanging",
+      price:"₹320",
     },
   ];
   const filteredProducts = products.filter((item) =>
