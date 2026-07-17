@@ -490,9 +490,10 @@ margin:15px 0;
   margin-bottom:35px;
 }
 .category-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:30px;
+    justify-items:center;
 }
 .category-card{
   background:white;
@@ -504,6 +505,8 @@ margin:15px 0;
   cursor:pointer;
   box-shadow:0 5px 15px rgba(0,0,0,.1);
   transition:.3s;
+   width:220px;
+    height:300px;
 }
 .category-card:hover{
   transform:translateY(-8px);
@@ -531,4 +534,107 @@ margin:15px 0;
 }
 .checkout-btn:hover {
   background: #e63c77;
+}
+.category-heading{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.category-heading h2{
+    font-size:3rem;
+    color:#ff4f87;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.category-heading p{
+    color:#666;
+    font-size:1.1rem;
+}
+
+.category-heading .line{
+    display:inline-block;
+    width:120px;
+    height:2px;
+    background:#ffb6c1;
+    vertical-align:middle;
+    margin:0 10px;
+}
+.category-card{
+    width:230px;
+    height:300px;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-between;
+
+    border:2px solid #ffe0ec;
+
+    box-shadow:0 10px 25px rgba(255,105,180,.15);
+
+    transition:.35s ease;
+}
+
+.category-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(255,105,180,.25);
+
+    border-color:#ff5c93;
+}
+
+.category-icon{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    overflow:hidden;
+    background:#fff3f8;
+}
+
+.category-card h3{
+
+    color:#8b1e4b;
+
+    font-size:1.7rem;
+
+    text-align:center;
+}
+
+.category-btn{
+
+    border:none;
+
+    background:#ff5c93;
+
+    color:white;
+
+    padding:10px 28px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.category-btn:hover{
+
+    background:#ff2f74;
+    transform:scale(1.08);
+
+    box-shadow:0 8px 20px rgba(255,105,180,.3);
+}
+.category-icon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
 }

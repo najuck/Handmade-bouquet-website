@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import CustomerReviews from "./CustomerReviews";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import roseImg from "../assets/categories/rose.jpeg";
+import potImg from "../assets/categories/blushpot.jpeg";
+import carImg from "../assets/categories/evileyecar.jpeg";
+import keyImg from "../assets/categories/keychain1.jpeg";
+import beerImg from "../assets/categories/beer1.jpeg";
+import teddyImg from "../assets/categories/blushbear.jpeg";
 
 // Dynamically import all images from assets folder
 const images = import.meta.glob('../assets/*.jpeg', { eager: true });
@@ -76,7 +82,7 @@ const finalTotal = totalPrice + deliveryCharge;
       id: 3,
       image: getImagePath('candygarden.jpeg'),
       name: "Candy Garden Bouquet",
-      price: "₹1299",
+      price: "₹1199",
     },
     {
       id: 4,
@@ -94,7 +100,7 @@ const finalTotal = totalPrice + deliveryCharge;
       id: 6,
       image: getImagePath('rose.jpeg'),
       name: "Rose Bouquet",
-      price: "₹1399",
+      price: "₹1499",
     },
     {
       id: 7,
@@ -196,7 +202,7 @@ const finalTotal = totalPrice + deliveryCharge;
       id:23,
       image: getImagePath('keychain.jpeg'),
       name:"Pipeful Initial Keychains",
-      price:"₹99",
+      price:"₹89",
     },
     {
       id:24,
@@ -208,13 +214,13 @@ const finalTotal = totalPrice + deliveryCharge;
       id:25,
       image: getImagePath('keychain2.jpeg'),
       name:"Velvet Petal Keychain",
-      price:"₹99",
+      price:"₹89",
     },
     {
       id:26,
       image: getImagePath('keychain3.jpeg'),
       name:"Blue Petal Keychain",
-      price:"₹99",
+      price:"₹89",
     },
     {
       id:27,
@@ -243,6 +249,12 @@ const finalTotal = totalPrice + deliveryCharge;
     { id:32,
       image: getImagePath('evileyecar.jpeg'),
       name:"Evil Eye Car Hanging",
+      price:"₹350",
+    },
+    {
+      id:33,
+      image: getImagePath('pot.jpeg'),
+      name:"Initial's Pot",
       price:"₹350",
     },
   ];
@@ -319,20 +331,91 @@ console.log("Filtered Products:", filteredProducts);
 {/* Categories */}
 {searchTerm == "" && (
 <section className="categories">
-  <h2>🌸 Shop by Category</h2>
+  <div className="category-heading">
+  <span className="line"></span>
+
+  <h2>
+    🌸 <span>Shop by Category</span> 🌸
+  </h2>
+
+  <span className="line"></span>
+
+  <p>Find the perfect handmade gift for every special moment 💖</p>
+</div>
 
   <div className="category-grid">
-    <div className="category-card">💐 Bouquets</div>
+    <div className="category-card">
 
-    <div className="category-card">🪴 Flower Pots</div>
+  <div className="category-icon">
+  <img src={roseImg} alt="Bouquets" />
+</div>
 
-    <div className="category-card">🚗 Car Hangings</div>
+  <h3>Bouquets</h3>
 
-    <div className="category-card">🔑 Keychains</div>
+  <button className="category-btn">
+    Shop Now →
+  </button>
 
-    <div className="category-card">🍺 Beer Bouquets</div>
+</div>
+    <div className="category-card">
+  <div className="category-icon">
+    <img src={potImg} alt="Flower Pots" />
+  </div>
 
-    <div className="category-card">🧸 Teddy Bouquets</div>
+  <h3>Flower Pots</h3>
+
+  <button className="category-btn">
+    Shop Now →
+  </button>
+</div>
+
+<div className="category-card">
+  <div className="category-icon">
+    <img src={carImg} alt="Car Hangings" />
+  </div>
+
+  <h3>Car Hangings</h3>
+
+  <button className="category-btn">
+    Shop Now →
+  </button>
+</div>
+
+<div className="category-card">
+  <div className="category-icon">
+    <img src={keyImg} alt="Keychains" />
+  </div>
+
+  <h3>Keychains</h3>
+
+  <button className="category-btn">
+    Shop Now →
+  </button>
+</div>
+
+<div className="category-card">
+  <div className="category-icon">
+    <img src={beerImg} alt="Beer Bouquets" />
+  </div>
+
+  <h3>Beer Bouquets</h3>
+
+  <button className="category-btn">
+    Shop Now →
+  </button>
+</div>
+
+<div className="category-card">
+  <div className="category-icon">
+    <img src={teddyImg} alt="Teddy Bouquets" />
+  </div>
+
+  <h3>Teddy Bouquets</h3>
+
+  <button className="category-btn">
+    Shop Now →
+  </button>
+</div>
 
   </div>
 </section>
