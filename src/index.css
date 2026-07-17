@@ -1,20 +1,27 @@
-.navbar{
-  display: flex;
-  background-color: white;
-  justify-content: space-around;
-  align-items: center;
-  height: 60px;
+:root{
+  --cream:#FDF5EF; --cream-2:#FBEEE6; --blush:#FCE4EC; --blush-2:#FBD9E4;
+  --berry:#C4416B; --berry-dk:#9E2E52; --rose:#E87BA0; --rose-lt:#F6C2D5;
+  --plum:#3E2B33; --plum-soft:#8A7178; --gold:#D99A5B;
+  --line:#F1DFD6; --white:#fff;
+  --disp:"Fraunces",serif; --body:"DM Sans",system-ui,sans-serif;
 }
-.navbar a{
-  color: black;
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:var(--cream);
+  color:var(--plum);
+  font-family:var(--body);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+  min-height:100vh;
+}
+
+a{
   text-decoration:none;
-}
-.navbar a:hover{
-  color: red;
-}
-.hello {
-  font-size: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color:inherit;
 }

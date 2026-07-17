@@ -16,7 +16,7 @@ const Footer = () => {
 
         <div className="footer-section">
           <h3>Contact</h3>
-          <p>📧 pipefulbloom@gmail.com</p>
+          <a href="mailto:pipefulbloom@gmail.com" className="footer-link">📧 pipefulbloom@gmail.com</a>
           <a href="https://www.instagram.com/pipeful_bloom/" target="_blank" rel="noreferrer" className="footer-link">📷 Instagram</a>
         </div>
 
