@@ -597,6 +597,10 @@ margin:15px 0;
     border-radius:50%;
     overflow:hidden;
     background:#fff3f8;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .category-card h3{
@@ -637,4 +641,5 @@ margin:15px 0;
     height:100%;
     object-fit:cover;
     border-radius:50%;
+    display:block;
 }
