@@ -22,7 +22,7 @@ export default function CustomerReviews() {
       <h2>❤️ Customer Love</h2>
       <div className="review-stats">
   <div className="rating">
-    ⭐⭐⭐⭐⭐TR
+    ⭐⭐⭐⭐⭐
     <h3>4.9/5 Rating</h3>
     <p>Based on Real WhatsApp Reviews</p>
   </div>

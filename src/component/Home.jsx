@@ -154,7 +154,7 @@ const finalTotal = totalPrice + deliveryCharge;
       id:16,
       image: getImagePath('carhang.jpeg'),
       name:"Sunflower Car Hanging",
-      price:"₹320",
+      price:"₹350",
     },
     {
       id:17,
@@ -178,7 +178,7 @@ const finalTotal = totalPrice + deliveryCharge;
       id:20,
       image: getImagePath('divineblessings.jpeg'),
       name:"Divine Blessings Bouquet",
-      price: "₹899",
+      price: "₹699",
     },
     {
       id:21,
@@ -238,12 +238,12 @@ const finalTotal = totalPrice + deliveryCharge;
       id:31,
       image: getImagePath('blushbear.jpeg'),
       name:"Pastel Teddy Bouquet",
-      price:"₹1899",
+      price:"₹1799",
     },
     { id:32,
       image: getImagePath('evileyecar.jpeg'),
       name:"Evil Eye Car Hanging",
-      price:"₹320",
+      price:"₹350",
     },
   ];
   const filteredProducts = products.filter((item) =>
