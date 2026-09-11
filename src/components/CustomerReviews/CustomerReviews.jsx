@@ -17,6 +17,9 @@ const reviews = [
   "/reviews/review11.jpeg",
   "/reviews/review12.jpeg",
   "/reviews/review13.jpeg",
+  "/reviews/review14.jpeg",
+  "/reviews/review15.jpeg",
+  "/reviews/review16.jpeg",
 ];
 export default function CustomerReviews() {
   return (

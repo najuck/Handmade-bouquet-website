@@ -283,6 +283,78 @@ const finalTotal = totalPrice + deliveryCharge;
       name:"Initial's Pot",
       price:"₹350",
     },
+    {
+      id: 34,
+      image: getImagePath('sapphirebloom.jpeg'),
+      name: "Royal Sapphire Bouquet",
+      price: "₹170",
+    },
+    {
+      id: 35,
+      image: getImagePath('birthdaybliss.jpeg'),
+      name: "Birthday Bliss Bouquet",
+      price: "₹1300",
+    },
+    {
+      id: 36,
+      image: getImagePath('rosyelegance.jpeg'),
+      name: "Rosy Elegance Bouquet",
+      price: "₹170",
+    },
+    {
+      id: 37,
+      image: getImagePath('crimsoncharm.jpeg'),
+      name: "Crimson Charm Bouquet",
+      price: "₹250",
+    },
+    {
+      id: 38,
+      image: getImagePath('blushsymphony.jpeg'),
+      name: "Blush Symphony Bouquet",
+      price: "₹600",
+    },
+    {
+      id: 39,
+      image: getImagePath('vintagegazettedaisy.jpeg'),
+      name: "Vintage Gazette Daisy Bouquet",
+      price: "₹250",
+    },
+    {
+      id: 40,
+      image: getImagePath('floraltimessunflower.jpeg'),
+      name: "Floral Times Sunflower Bouquet",
+      price: "₹250",
+    },
+    {
+      id: 41,
+      image: getImagePath('pinkstargazerlily.jpeg'),
+      name: "Pink Stargazer Lily Bouquet",
+      price: "₹610",
+    },
+    {
+      id: 42,
+      image: getImagePath('luminouscrimsonrose.jpeg'),
+      name: "Luminous Crimson Rose Bouquet",
+      price: "₹1199",
+    },
+    {
+      id: 43,
+      image: getImagePath('evileyechocolate.jpeg'),
+      name: "Evil Eye Chocolate Bouquet",
+      price: "₹1399",
+    },
+    {
+      id: 44,
+      image: getImagePath('sweetromancelily.jpeg'),
+      name: "Sweet Romance Lily Bouquet",
+      price: "₹650",
+    },
+    {
+      id: 45,
+      image: getImagePath('kanhajikamalaasan.jpeg'),
+      name: "Kanha Ji Kamal Aasan",
+      price: "₹899",
+    },
   ];
   const filteredProducts = products.filter((item) =>
     item.name.toLowerCase().includes((searchTerm || "").toLowerCase()) &&
