@@ -93,24 +93,6 @@ const deliveryCharge = 250;
 const finalTotal = totalPrice + deliveryCharge;
   const products = [
     {
-      id: 46,
-      image: getImagePath('sapphiredream.jpeg'),
-      name: "The Sapphire Dream Birthday Bouquet",
-      price: "₹599",
-    },
-    {
-      id: 47,
-      image: getImagePath('nostalgiakeepsake.jpeg'),
-      name: "The Nostalgia Keepsake Photo Bouquet",
-      price: "₹1199",
-    },
-    {
-      id: 48,
-      image: getImagePath('chocobloom.jpeg'),
-      name: "The Choco-Bloom Delight Bouquet",
-      price: "₹849",
-    },
-    {
       id: 1,
       image: getImagePath('bluemoonlily.jpeg'),
       name: "Blue Moon Lily Bouquet",
@@ -372,6 +354,24 @@ const finalTotal = totalPrice + deliveryCharge;
       image: getImagePath('kanhajikamalaasan.jpeg'),
       name: "Kanha Ji Kamal Aasan",
       price: "₹899",
+    },
+    {
+      id: 46,
+      image: getImagePath('sapphiredream.jpeg'),
+      name: "The Sapphire Dream Birthday Bouquet",
+      price: "₹599",
+    },
+    {
+      id: 47,
+      image: getImagePath('nostalgiakeepsake.jpeg'),
+      name: "The Nostalgia Keepsake Photo Bouquet",
+      price: "₹1199",
+    },
+    {
+      id: 48,
+      image: getImagePath('chocobloom.jpeg'),
+      name: "The Choco-Bloom Delight Bouquet",
+      price: "₹849",
     },
   ];
   const filteredProducts = products.filter((item) =>
