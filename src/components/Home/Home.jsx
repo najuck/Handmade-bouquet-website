@@ -355,6 +355,24 @@ const finalTotal = totalPrice + deliveryCharge;
       name: "Kanha Ji Kamal Aasan",
       price: "₹899",
     },
+    {
+      id: 46,
+      image: getImagePath('sapphiredream.jpeg'),
+      name: "The Sapphire Dream Birthday Bouquet",
+      price: "₹599",
+    },
+    {
+      id: 47,
+      image: getImagePath('nostalgiakeepsake.jpeg'),
+      name: "The Nostalgia Keepsake Photo Bouquet",
+      price: "₹1199",
+    },
+    {
+      id: 48,
+      image: getImagePath('chocobloom.jpeg'),
+      name: "The Choco-Bloom Delight Bouquet",
+      price: "₹849",
+    },
   ];
   const filteredProducts = products.filter((item) =>
     item.name.toLowerCase().includes((searchTerm || "").toLowerCase()) &&
