@@ -405,9 +405,9 @@ const ratingFor = (id) => (4.6 + (id % 5) * 0.08).toFixed(1);
         </div>
 
         <div className="hero-art">
-          <div className="big"><img src={getImagePath('bluemoonlily.jpeg')} alt="Blue Moon Lily bouquet" /></div>
-          <div className="small"><img src={getImagePath('candygarden.jpeg')} alt="Candy Garden bouquet" /></div>
-          <div className="tag"><b>Never wilts 🌷</b><span>Keeps for years</span></div>
+          <div className="big"><img src={getImagePath('sapphiredream.jpeg')} alt="The Sapphire Dream bouquet" /></div>
+          <div className="small"><img src={getImagePath('chocobloom.jpeg')} alt="The Choco-Bloom Delight bouquet" /></div>
+          <div className="tag"><b>New Arrivals ✨</b><span>Forever Blooms</span></div>
         </div>
       </section>
       )}
