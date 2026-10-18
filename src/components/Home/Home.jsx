@@ -111,6 +111,12 @@ const finalTotal = totalPrice + deliveryCharge;
       price: "₹1399",
     },
     {
+      id: 52,
+      image: getImagePath('evileyeourforever.jpeg'),
+      name: "Our Forever Begins Evil Eye Bouquet",
+      price: "₹1199",
+    },
+    {
       id: 1,
       image: getImagePath('bluemoonlily.jpeg'),
       name: "Blue Moon Lily Bouquet",
