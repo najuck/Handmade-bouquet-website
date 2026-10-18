@@ -93,6 +93,12 @@ const deliveryCharge = 250;
 const finalTotal = totalPrice + deliveryCharge;
   const products = [
     {
+      id: 49,
+      image: getImagePath('sunflowerlilybirthday.jpeg'),
+      name: "Golden Sunflower & Sapphire Bloom Bouquet",
+      price: "₹1199",
+    },
+    {
       id: 1,
       image: getImagePath('bluemoonlily.jpeg'),
       name: "Blue Moon Lily Bouquet",
