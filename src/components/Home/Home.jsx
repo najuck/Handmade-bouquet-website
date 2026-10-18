@@ -117,6 +117,12 @@ const finalTotal = totalPrice + deliveryCharge;
       price: "₹1199",
     },
     {
+      id: 53,
+      image: getImagePath('sunflowerpinklily.jpeg'),
+      name: "Sunshine & Pink Lily Bouquet",
+      price: "₹699",
+    },
+    {
       id: 1,
       image: getImagePath('bluemoonlily.jpeg'),
       name: "Blue Moon Lily Bouquet",
