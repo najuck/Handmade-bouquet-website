@@ -99,6 +99,12 @@ const finalTotal = totalPrice + deliveryCharge;
       price: "₹1199",
     },
     {
+      id: 50,
+      image: getImagePath('pinktulipbirthday.jpeg'),
+      name: "The Crimson Blush Birthday Bouquet",
+      price: "₹1199",
+    },
+    {
       id: 1,
       image: getImagePath('bluemoonlily.jpeg'),
       name: "Blue Moon Lily Bouquet",
