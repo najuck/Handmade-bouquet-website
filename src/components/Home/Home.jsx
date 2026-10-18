@@ -105,6 +105,12 @@ const finalTotal = totalPrice + deliveryCharge;
       price: "₹1199",
     },
     {
+      id: 51,
+      image: getImagePath('pinkgradienttulips.jpeg'),
+      name: "Pastel Ombré Tulip Bouquet",
+      price: "₹1399",
+    },
+    {
       id: 1,
       image: getImagePath('bluemoonlily.jpeg'),
       name: "Blue Moon Lily Bouquet",
